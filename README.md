@@ -40,6 +40,12 @@
 
 ![image](https://github.com/user-attachments/assets/334c474f-edee-4b2b-9683-6f4dcdb972aa)  
 
+
+### Clone this project
+```bash
+   git clone https://github.com/alikapllan/Ticket-Management-System-openui5.git
+```
+
 ### Environment Setup
 
 **1.** Create an **.env** file inside the **backend-rest-api** folder.
@@ -54,8 +60,6 @@
 ![image](https://github.com/user-attachments/assets/3f5c04a4-e5c4-4e5e-99cd-fa3639063d87)
 
 ### Install Dependencies
-
-**1.** Install dependencies
 
 - Run ```npm install``` in the following directories:
   - **tmui5** folder
