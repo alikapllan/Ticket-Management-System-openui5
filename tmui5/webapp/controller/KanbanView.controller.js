@@ -208,6 +208,9 @@ sap.ui.define(
               oPayload
             );
 
+            // update model
+            await this.loadTickets();
+
             if (oUpdatedTicketResponse) {
               // await this.loadTickets();
               const sTicketStatusText = this.getOwnerComponent()
@@ -222,9 +225,6 @@ sap.ui.define(
                   sTicketStatusText,
                 ])
               );
-
-              // see changes reflecting on UI -> forces model to notify all bindings that data has changed
-              this.getOwnerComponent().getModel("ticketModel").refresh(true);
             }
           } catch (error) {
             console.error(error);
