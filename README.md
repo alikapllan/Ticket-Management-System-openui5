@@ -40,6 +40,12 @@
 
 ![image](https://github.com/user-attachments/assets/334c474f-edee-4b2b-9683-6f4dcdb972aa)  
 
+
+### Clone this project
+```bash
+   git clone https://github.com/alikapllan/Ticket-Management-System-openui5.git
+```
+
 ### Environment Setup
 
 **1.** Create an **.env** file inside the **backend-rest-api** folder.
@@ -48,12 +54,12 @@
 
 - DB_DATABASE is the Database name created in Postresql. Important is also to provide the password of this DB.
 - Other configurations are the Oauth configs to be able to send emails. To set it up you can refer to [this commit message](https://github.com/alikapllan/Ticket-Management-System-openui5/commit/06da058d5ae2c0e7d144e5fa098522cde66ed443).
+
+  !! **REDIRECT_URI = https://developers.google.com/oauthplayground**
   
-![image](https://github.com/user-attachments/assets/f8c8a1dc-b7ad-43ec-8147-dc9c5dbf5fd0)
+![image](https://github.com/user-attachments/assets/3f5c04a4-e5c4-4e5e-99cd-fa3639063d87)
 
 ### Install Dependencies
-
-**1.** Install dependencies
 
 - Run ```npm install``` in the following directories:
   - **tmui5** folder
