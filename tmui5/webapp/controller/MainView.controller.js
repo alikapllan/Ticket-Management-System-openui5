@@ -33,7 +33,7 @@ sap.ui.define(
 
       onPress: async function (sRoute, sFragment) {
         if (sRoute) {
-          if (sRoute === this.Constants.ROUTES.TICKET_OVERVIEW) {
+          if (sRoute === this.Constants.ROUTES.TICKET_OVERVIEW || sRoute === this.Constants.ROUTES.KANBAN_VIEW) {
             // Refresh tickets to ensure new additions of tickets are visible
             await this.loadTickets();
           }

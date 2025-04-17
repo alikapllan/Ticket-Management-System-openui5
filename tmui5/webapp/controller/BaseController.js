@@ -6,7 +6,6 @@ sap.ui.define(
     "tmui5/services/customerService",
     "tmui5/services/teamMemberService",
     "tmui5/services/ticketService",
-    "tmui5/services/ticketStatusService",
     "tmui5/constants/Constants",
   ],
   function (
@@ -16,7 +15,6 @@ sap.ui.define(
     customerService,
     teamMemberService,
     ticketService,
-    ticketStatusService,
     Constants // Used in all other child controllers extending BaseController
   ) {
     "use strict";

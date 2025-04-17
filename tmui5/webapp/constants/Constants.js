@@ -31,6 +31,7 @@ sap.ui.define([], function () {
     ROUTES: {
       MAIN: "RouteMainView",
       TICKET_OVERVIEW: "RouteTicketOverview",
+      KANBAN_VIEW: "RouteKanbanView",
       EDIT_TICKET: "RouteEditTicket",
       CREATE_TICKET: "RouteCreateTicket",
       DELETE_TEAM_MEMBER: "RouteDeleteTeamMember",
