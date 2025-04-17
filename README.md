@@ -79,3 +79,6 @@
 
 https://github.com/user-attachments/assets/e3521573-5fc1-4c59-829e-4f687c8438ee
 
+## Kanban View Page - Demo Video
+
+https://github.com/user-attachments/assets/29fdb546-8586-403f-b8b7-f13701b0b09b
