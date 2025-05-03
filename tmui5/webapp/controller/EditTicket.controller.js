@@ -70,12 +70,23 @@ sap.ui.define(
         // Clear necessary input fields which are not filled when navigating to EditTicket Page
         this._resetEditTicketForm();
 
-        await this._loadAndBindTicketDetailToEdit(iTicketId);
-        await this._loadTicketComments(iTicketId);
-        await this._loadUploadedTicketFilesAndBindToView(
-          iTicketId,
-          this.oBundle
+        // check navigated ticket really exists, if not land to NotFound Page
+        const aTicketExistenceCheck = await this._checkTicketExistence(
+          iTicketId
         );
+
+        if (!aTicketExistenceCheck || aTicketExistenceCheck.length === 0) {
+          // no such ticket
+          this._displayNotFoundPage();
+          return;
+        }
+
+        await this._loadAndBindTicketDetailToEdit(iTicketId);
+        // Load comments & files in parallel
+        await Promise.all([
+          this._loadTicketComments(iTicketId),
+          this._loadUploadedTicketFilesAndBindToView(iTicketId, this.oBundle),
+        ]);
       },
 
       _resetEditTicketForm: function () {
@@ -87,6 +98,14 @@ sap.ui.define(
 
         // Clear update comment field
         this.byId("updateCommentEditInput").setValue("");
+      },
+
+      _checkTicketExistence: async function (iTicketId) {
+        return await ticketService.fetchTicket(iTicketId);
+      },
+
+      _displayNotFoundPage: function () {
+        this.getOwnerComponent().getTargets().display("TargetNotFound");
       },
 
       _loadAndBindTicketDetailToEdit: async function (iTicketId) {
