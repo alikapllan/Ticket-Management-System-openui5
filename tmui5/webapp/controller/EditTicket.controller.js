@@ -63,6 +63,8 @@ sap.ui.define(
       },
 
       _onRouteMatched: async function (oEvent) {
+        this._setTextAreaValueStateToNone();
+
         const oArgs = oEvent.getParameter("arguments");
         const sTicketId = oArgs.ticketId;
         const iTicketId = parseInt(sTicketId);
@@ -87,6 +89,10 @@ sap.ui.define(
           this._loadTicketComments(iTicketId),
           this._loadUploadedTicketFilesAndBindToView(iTicketId, this.oBundle),
         ]);
+      },
+
+      _setTextAreaValueStateToNone: function () {
+        this.byId("descriptionEditInput").setValueState(this.ValueState.None);
       },
 
       _resetEditTicketForm: function () {
@@ -504,7 +510,7 @@ sap.ui.define(
       },
 
       onDescriptionLiveChange: function (oEvent) {
-        ValidationUtil.validateTextAreaLength(oEvent, this.Constants);
+        ValidationUtil.validateTextAreaLength(oEvent, this);
       },
 
       onNavBack: function () {

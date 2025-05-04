@@ -1,15 +1,14 @@
 sap.ui.define([], function () {
   "use strict";
-
   return {
-    validateTextAreaLength: function (oEvent, Constants) {
+    validateTextAreaLength: function (oEvent, oControllerInstance) {
       const oTextArea = oEvent.getSource(),
         iValueLength = oTextArea.getValue().length,
         iMaxLength = oTextArea.getMaxLength(),
         sState =
           iValueLength > iMaxLength
-            ? Constants.VALUE_STATES.ERROR
-            : Constants.VALUE_STATES.NONE;
+            ? oControllerInstance.ValueState.Error
+            : oControllerInstance.ValueState.None;
 
       oTextArea.setValueState(sState);
     },

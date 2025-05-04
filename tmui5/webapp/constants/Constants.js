@@ -15,14 +15,6 @@ sap.ui.define([], function () {
       TICKET_ID_VALUEHELP: "TicketIdValueHelp",
     },
 
-    VALUE_STATES: {
-      INFORMATION: "Information",
-      SUCCESS: "Success",
-      WARNING: "Warning",
-      ERROR: "Error",
-      NONE: "None",
-    },
-
     EMAIL_SENDING_TYPE: {
       CREATED: "created",
       UPDATED: "updated",

@@ -7,6 +7,7 @@ sap.ui.define(
     "tmui5/services/teamMemberService",
     "tmui5/services/ticketService",
     "tmui5/constants/Constants",
+    "sap/ui/core/library",
   ],
   function (
     Controller,
@@ -15,7 +16,8 @@ sap.ui.define(
     customerService,
     teamMemberService,
     ticketService,
-    Constants // Used in all other child controllers extending BaseController
+    Constants, // Used in all other child controllers extending BaseController
+    coreLibrary
   ) {
     "use strict";
 
@@ -26,6 +28,9 @@ sap.ui.define(
         this.oBundle = this.getOwnerComponent()
           .getModel("i18n")
           .getResourceBundle();
+
+        // https://sapui5.hana.ondemand.com/#/api/sap.ui.core.ValueState
+        this.ValueState = coreLibrary.ValueState;
       },
       /**
        * @private

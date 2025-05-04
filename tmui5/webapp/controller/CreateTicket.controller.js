@@ -59,7 +59,13 @@ sap.ui.define(
       },
 
       _onRouteMatched: function () {
+        this._setTextAreaValueStateToNone();
+
         this._resetCreateTicketForm(); // Reset form whenever the route is matched
+      },
+
+      _setTextAreaValueStateToNone: function () {
+        this.byId("descriptionInput").setValueState(this.ValueState.None);
       },
 
       // Value Help 'Assigned To' - START
@@ -334,7 +340,7 @@ sap.ui.define(
       },
 
       onDescriptionLiveChange: function (oEvent) {
-        ValidationUtil.validateTextAreaLength(oEvent, this.Constants);
+        ValidationUtil.validateTextAreaLength(oEvent, this);
       },
 
       onNavBack: function () {
