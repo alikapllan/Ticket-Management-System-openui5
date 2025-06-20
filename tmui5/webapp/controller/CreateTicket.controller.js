@@ -12,6 +12,7 @@ sap.ui.define(
     "tmui5/util/EmailUtil",
     "sap/ui/core/BusyIndicator",
     "tmui5/util/ValidationUtil",
+    "sap/base/Log",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -28,7 +29,8 @@ sap.ui.define(
     FileUploaderUtil,
     EmailUtil,
     BusyIndicator,
-    ValidationUtil
+    ValidationUtil,
+    Log
   ) {
     "use strict";
 
@@ -83,7 +85,11 @@ sap.ui.define(
 
           oDialog.open();
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to load assigned to",
+            error,
+            "tmui5.controller.CreateTicket"
+          );
           MessageBox.error(this.oBundle.getText("MBoxErrorLoadingAssignedTo"));
         }
       },
@@ -149,7 +155,11 @@ sap.ui.define(
           );
           oDialog.open();
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to load customers",
+            error,
+            "tmui5.controller.CreateTicket"
+          );
           MessageBox.error(this.oBundle.getText("MBoxErrorLoadingCustomer"));
         }
       },
@@ -283,7 +293,11 @@ sap.ui.define(
           // remove busy indicator in case of any error as well, so that it stops blocking UI in anycase
           BusyIndicator.hide();
 
-          console.error(error);
+          Log.error(
+            "Failed to create ticket",
+            error,
+            "tmui5.controller.CreateTicket"
+          );
           MessageBox.error(this.oBundle.getText("MBoxFailedToCreateTicket"));
         }
       },

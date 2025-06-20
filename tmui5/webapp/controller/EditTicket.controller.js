@@ -15,6 +15,7 @@ sap.ui.define(
     "tmui5/util/EmailUtil",
     "sap/ui/core/BusyIndicator",
     "tmui5/util/ValidationUtil",
+    "sap/base/Log",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -34,7 +35,8 @@ sap.ui.define(
     formatter,
     EmailUtil,
     BusyIndicator,
-    ValidationUtil
+    ValidationUtil,
+    Log
   ) {
     "use strict";
 
@@ -149,7 +151,11 @@ sap.ui.define(
             oEditTicketModel.getData().customerId
           );
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to load ticket details",
+            error,
+            "tmui5.controller.EditTicket"
+          );
           MessageBox.error(
             this.oBundle.getText("MBoxGETReqFailedOnTicketToEdit")
           );
@@ -166,7 +172,11 @@ sap.ui.define(
 
           this.getView().setModel(oTicketCommentModel, "ticketCommentModel");
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to load ticket comments",
+            error,
+            "tmui5.controller.EditTicket"
+          );
           this.oBundle.getText("MBoxGETReqFailedOnTicketComment");
         }
       },
@@ -241,7 +251,11 @@ sap.ui.define(
 
           oDialog.open();
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to load team members",
+            error,
+            "tmui5.controller.EditTicket"
+          );
           MessageBox.error(this.oBundle.getText("MBoxErrorLoadingAssignedTo"));
         }
       },
@@ -316,7 +330,11 @@ sap.ui.define(
           );
           oDialog.open();
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to load customers",
+            error,
+            "tmui5.controller.EditTicket"
+          );
           MessageBox.error(this.oBundle.getText("MBoxErrorLoadingCustomer"));
         }
       },
@@ -470,7 +488,11 @@ sap.ui.define(
         } catch (error) {
           // remove busy indicator in case of any error as well, so that it stops blocking UI in anycase
           BusyIndicator.hide();
-          console.error(error);
+          Log.error(
+            "Failed to update ticket. Email also might not be sent :P too lazy to implement an additional catch for it :P",
+            error,
+            "tmui5.controller.EditTicket"
+          );
           MessageBox.error(this.oBundle.getText("MBoxFailedToEditTicket"));
         }
       },
@@ -502,7 +524,11 @@ sap.ui.define(
           // remove busy indicator in case of any error as well, so that it stops blocking UI in anycase
           BusyIndicator.hide();
 
-          console.error(error);
+          Log.error(
+            "Failed to create a new ticket comment",
+            error,
+            "tmui5.controller.EditTicket"
+          );
           MessageBox.error(
             this.oBundle.getText("MBoxFailedToCreateTicketComment")
           );

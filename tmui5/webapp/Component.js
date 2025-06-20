@@ -12,6 +12,7 @@ sap.ui.define(
     "tmui5/services/roleService",
     "tmui5/services/ticketTypeService",
     "tmui5/services/ticketStatusService",
+    "sap/base/Log",
   ],
   function (
     UIComponent,
@@ -21,7 +22,8 @@ sap.ui.define(
     MessageBox,
     roleService,
     ticketTypeService,
-    ticketStatusService
+    ticketStatusService,
+    Log
   ) {
     "use strict";
 
@@ -38,6 +40,10 @@ sap.ui.define(
       init: async function () {
         // call the base component's init function
         UIComponent.prototype.init.apply(this, arguments);
+
+        // Set log level globally
+        // Log.setLevel(Log.Level.ALL); // Enables debug, info, warning, error logs
+        Log.setLevel(Log.Level.ERROR); // only log Errors
 
         // enable routing
         this.getRouter().initialize();
@@ -58,7 +64,7 @@ sap.ui.define(
           const oRoleModel = new JSONModel(roles);
           this.setModel(oRoleModel, "roleModel");
         } catch (error) {
-          console.error(error);
+          Log.error("Failed to fetch roles", error, "tmui5.webapp.Component");
           MessageBox.error(oBundle.getText("MBoxGETReqFailedOnRole"));
         }
 
@@ -68,7 +74,11 @@ sap.ui.define(
           const oTicketTypeModel = new JSONModel(ticketTypes);
           this.setModel(oTicketTypeModel, "ticketTypeModel");
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to fetch ticket types",
+            error,
+            "tmui5.webapp.Component"
+          );
           MessageBox.error(oBundle.getText("MBoxGETReqFailedOnTicketType"));
         }
 
@@ -78,7 +88,11 @@ sap.ui.define(
           const oTicketStatusModel = new JSONModel(tickets);
           this.setModel(oTicketStatusModel, "ticketStatusModel");
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to fetch ticket statuses",
+            error,
+            "tmui5.webapp.Component"
+          );
           MessageBox.error(oBundle.getText("MBoxGETReqFailedOnTicketStatus"));
         }
       },

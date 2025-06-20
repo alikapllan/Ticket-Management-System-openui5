@@ -10,6 +10,7 @@ sap.ui.define(
     "tmui5/services/ticketService",
     "tmui5/util/FragmentUtil",
     "tmui5/model/formatter",
+    "sap/base/Log",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -24,7 +25,8 @@ sap.ui.define(
     Token,
     ticketService,
     FragmentUtil,
-    formatter
+    formatter,
+    Log
   ) {
     "use strict";
 
@@ -115,7 +117,11 @@ sap.ui.define(
             "ticketModel"
           );
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to fetch filtered tickets",
+            error,
+            "tmui5.controller.TicketOverview"
+          );
           MessageBox.error(
             this.oBundle.getText("MBoxGETReqFailedOnFilteredTickets")
           );
@@ -189,7 +195,11 @@ sap.ui.define(
                   this.oBundle.getText("MBoxSuccessOfDeletionTicket")
                 );
               } catch (error) {
-                console.log(error);
+                Log.error(
+                  "Failed to delete ticket(s)",
+                  error,
+                  "tmui5.controller.TicketOverview"
+                );
                 MessageBox.error(
                   this.oBundle.getText("MBoxErrorToDeleteTicket")
                 );

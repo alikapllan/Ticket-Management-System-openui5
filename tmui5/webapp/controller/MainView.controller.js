@@ -6,6 +6,7 @@ sap.ui.define(
     "sap/m/MessageBox",
     "tmui5/services/customerService",
     "tmui5/services/teamMemberService",
+    "sap/base/Log",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -16,7 +17,8 @@ sap.ui.define(
     MessageToast,
     MessageBox,
     customerService,
-    teamMemberService
+    teamMemberService,
+    Log
   ) {
     "use strict";
 
@@ -33,7 +35,10 @@ sap.ui.define(
 
       onPress: async function (sRoute, sFragment) {
         if (sRoute) {
-          if (sRoute === this.Constants.ROUTES.TICKET_OVERVIEW || sRoute === this.Constants.ROUTES.KANBAN_VIEW) {
+          if (
+            sRoute === this.Constants.ROUTES.TICKET_OVERVIEW ||
+            sRoute === this.Constants.ROUTES.KANBAN_VIEW
+          ) {
             // Refresh tickets to ensure new additions of tickets are visible
             await this.loadTickets();
           }
@@ -63,7 +68,11 @@ sap.ui.define(
 
           oDialog.open();
         } catch (error) {
-          console.log(error);
+          Log.error(
+            "Failed to load fragment",
+            error,
+            "tmui5.controller.MainView"
+          );
           MessageToast.show(this.oBundle.getText("failedFragmentLoad"));
         }
       },
@@ -133,7 +142,11 @@ sap.ui.define(
             }
           );
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to create team member",
+            error,
+            "tmui5.controller.MainView"
+          );
           MessageBox.error(
             this.oBundle.getText("MBoxFailedToCreateTeamMember")
           );
@@ -189,7 +202,11 @@ sap.ui.define(
             }
           );
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to create customer",
+            error,
+            "tmui5.controller.MainView"
+          );
           MessageBox.error(this.oBundle.getText("MBoxFailedToCreateCustomer"));
         }
       },

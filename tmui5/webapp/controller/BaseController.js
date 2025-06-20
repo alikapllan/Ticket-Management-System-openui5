@@ -8,6 +8,7 @@ sap.ui.define(
     "tmui5/services/ticketService",
     "tmui5/constants/Constants",
     "sap/ui/core/library",
+    "sap/base/Log",
   ],
   function (
     Controller,
@@ -17,7 +18,8 @@ sap.ui.define(
     teamMemberService,
     ticketService,
     Constants, // Used in all other child controllers extending BaseController
-    coreLibrary
+    coreLibrary,
+    Log
   ) {
     "use strict";
 
@@ -58,7 +60,11 @@ sap.ui.define(
             "teamMemberModel"
           );
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to fetch team members",
+            error,
+            "tmui5.controller.BaseController"
+          );
           MessageBox.error(
             this.oBundle.getText("MBoxGETReqFailedOnTeamMember")
           );
@@ -75,7 +81,11 @@ sap.ui.define(
           const oCustomerModel = new JSONModel(customers);
           this.getOwnerComponent().setModel(oCustomerModel, "customerModel");
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to fetch customers",
+            error,
+            "tmui5.controller.BaseController"
+          );
           MessageBox.error(this.oBundle.getText("MBoxGETReqFailedOnCustomer"));
         }
       },
@@ -90,7 +100,11 @@ sap.ui.define(
           const oTicketModel = new JSONModel(tickets);
           this.getOwnerComponent().setModel(oTicketModel, "ticketModel");
         } catch (error) {
-          console.error(error);
+          Log.error(
+            "Failed to fetch customers",
+            error,
+            "tmui5.controller.BaseController"
+          );
           MessageBox.error(this.oBundle.getText("MBoxGETReqFailedOnTicket"));
         }
       },

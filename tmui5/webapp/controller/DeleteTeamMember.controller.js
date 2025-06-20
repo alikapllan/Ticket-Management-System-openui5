@@ -4,11 +4,12 @@ sap.ui.define(
     "sap/ui/core/routing/History",
     "sap/m/MessageBox",
     "tmui5/services/teamMemberService",
+    "sap/base/Log",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (BaseController, History, MessageBox, teamMemberService) {
+  function (BaseController, History, MessageBox, teamMemberService, Log) {
     "use strict";
 
     return BaseController.extend("tmui5.controller.DeleteTeamMember", {
@@ -59,7 +60,12 @@ sap.ui.define(
                     this.oBundle.getText("MBoxSuccessOfDeletionTeamMember")
                   );
                 } catch (error) {
-                  console.log(error);
+                  Log.error(
+                    "Failed to delete team member(s)",
+                    error,
+                    "tmui5.controller.DeleteTeamMember"
+                  );
+
                   MessageBox.error(
                     this.oBundle.getText("MBoxErrorToDeleteTeamMember")
                   );

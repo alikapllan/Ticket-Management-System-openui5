@@ -4,11 +4,12 @@ sap.ui.define(
     "sap/ui/core/routing/History",
     "sap/m/MessageBox",
     "tmui5/services/customerService",
+    "sap/base/Log",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (BaseController, History, MessageBox, customerService) {
+  function (BaseController, History, MessageBox, customerService, Log) {
     "use strict";
 
     return BaseController.extend("tmui5.controller.DeleteCustomer", {
@@ -59,7 +60,11 @@ sap.ui.define(
                     this.oBundle.getText("MBoxSuccessOfDeletionCustomer")
                   );
                 } catch (error) {
-                  console.log(error);
+                  Log.error(
+                    "Failed to delete customer(s)",
+                    error,
+                    "tmui5.controller.DeleteCustomer"
+                  ); //
                   MessageBox.error(
                     this.oBundle.getText("MBoxErrorToDeleteCustomer")
                   );

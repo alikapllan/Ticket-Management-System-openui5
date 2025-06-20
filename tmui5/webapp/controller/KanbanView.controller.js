@@ -17,6 +17,7 @@ sap.ui.define(
     "tmui5/services/ticketStatusService",
     "sap/ui/core/CustomData",
     "tmui5/services/ticketService",
+    "sap/base/Log",
   ],
   function (
     BaseController,
@@ -35,7 +36,8 @@ sap.ui.define(
     JSONModel,
     ticketStatusService,
     CustomData,
-    ticketService
+    ticketService,
+    Log
   ) {
     "use strict";
 
@@ -81,10 +83,14 @@ sap.ui.define(
               "ticketStatusModel"
             );
           } catch (error) {
+            Log.error(
+              "Failed to load ticket statuses",
+              error,
+              "tmui5.controller.KanbanView"
+            );
             MessageBox.error(
               this.oBundle.getText("MBoxGETReqFailedOnTicketStatus")
             );
-            console.error(error);
           }
         }
       },
@@ -227,7 +233,11 @@ sap.ui.define(
               );
             }
           } catch (error) {
-            console.error(error);
+            Log.error(
+              "Failed to update ticket status",
+              error,
+              "tmui5.controller.KanbanView"
+            );
             MessageBox.error(
               this.oBundle.getText("MBoxFailedToUpdateTicketStatus")
             );
