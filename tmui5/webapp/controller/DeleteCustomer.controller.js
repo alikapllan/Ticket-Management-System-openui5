@@ -64,7 +64,7 @@ sap.ui.define(
                     "Failed to delete customer(s)",
                     error,
                     "tmui5.controller.DeleteCustomer"
-                  ); //
+                  );
                   MessageBox.error(
                     this.oBundle.getText("MBoxErrorToDeleteCustomer")
                   );

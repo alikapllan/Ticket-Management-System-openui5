@@ -101,7 +101,7 @@ sap.ui.define(
           this.getOwnerComponent().setModel(oTicketModel, "ticketModel");
         } catch (error) {
           Log.error(
-            "Failed to fetch customers",
+            "Failed to fetch tickets",
             error,
             "tmui5.controller.BaseController"
           );

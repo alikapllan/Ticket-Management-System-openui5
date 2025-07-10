@@ -86,7 +86,7 @@ sap.ui.define(
           oDialog.open();
         } catch (error) {
           Log.error(
-            "Failed to load assigned to",
+            "Failed to load team members or fragment issue (too lazy to expand :P)",
             error,
             "tmui5.controller.CreateTicket"
           );

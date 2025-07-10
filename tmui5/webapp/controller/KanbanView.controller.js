@@ -45,7 +45,13 @@ sap.ui.define(
       onInit: async function () {
         // Call the BaseController's onInit to initialize to be able to use 'oBundle'
         BaseController.prototype.onInit.apply(this, arguments);
+      },
 
+      /**
+       * @override
+       * @returns {void|undefined}
+       */
+      async onAfterRendering() {
         // ensuring Ticket and Ticket Stasus models are loaded
         await this._ensureModelsLoaded();
 
