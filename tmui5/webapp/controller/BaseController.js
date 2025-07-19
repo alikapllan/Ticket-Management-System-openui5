@@ -38,13 +38,14 @@ sap.ui.define(
        * @private
        */
       getRouter: function () {
-        return this.getOwnerComponent().getRouter();
+        return sap.ui.core.UIComponent.getRouterFor(this);
       },
       /**
        * @public
        */
-      navTo: function (sRoute) {
-        this.getRouter().navTo(sRoute, {}, true);
+      navTo: function (sRoute, parameters = {}) {
+        const replaceCurrentPage = true; // replace current page in history
+        this.getRouter().navTo(sRoute, parameters, replaceCurrentPage);
       },
 
       /**

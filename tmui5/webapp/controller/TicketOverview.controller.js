@@ -155,8 +155,7 @@ sap.ui.define(
         const sTicketId = oSelectedTicket.ticketId;
 
         // Navigate to the EditTicket page with ticketId as parameter
-        const oRouter = this.getOwnerComponent().getRouter();
-        oRouter.navTo(this.Constants.ROUTES.EDIT_TICKET, {
+        this.navTo(this.Constants.ROUTES.EDIT_TICKET, {
           ticketId: sTicketId,
         });
       },
