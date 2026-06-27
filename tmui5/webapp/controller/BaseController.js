@@ -1,5 +1,6 @@
 sap.ui.define(
   [
+    "sap/ui/core/UIComponent",
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
@@ -8,9 +9,10 @@ sap.ui.define(
     "tmui5/services/ticketService",
     "tmui5/constants/Constants",
     "sap/ui/core/library",
-    "sap/base/Log",
+    "sap/base/Log"
   ],
   function (
+    UIComponent,
     Controller,
     JSONModel,
     MessageBox,
@@ -38,7 +40,7 @@ sap.ui.define(
        * @private
        */
       getRouter: function () {
-        return sap.ui.core.UIComponent.getRouterFor(this);
+        return UIComponent.getRouterFor(this);
       },
       /**
        * @public

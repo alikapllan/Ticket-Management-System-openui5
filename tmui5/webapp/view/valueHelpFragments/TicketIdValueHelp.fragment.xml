@@ -5,9 +5,9 @@
         id="ticketIdValueHelpDialog"
         title="{i18n>ticketIdTitleValueHelp}"
         items="{ticketModel>/}"
-        search="_onTicketIdValueHelpSearch"
-        confirm="_onTicketIdValueHelpClose"
-        cancel="_onTicketIdValueHelpClose"
+        search="._onTicketIdValueHelpSearch"
+        confirm="._onTicketIdValueHelpClose"
+        cancel="._onTicketIdValueHelpClose"
         multiSelect="true">
         <StandardListItem
             iconDensityAware="false"
