@@ -30,6 +30,7 @@ sap.ui.define(
     return UIComponent.extend("tmui5.Component", {
       metadata: {
         manifest: "json",
+        interfaces: ["sap.ui.core.IAsyncContentCreation"]
       },
 
       /**

@@ -1,5 +1,5 @@
 {
-  "_version": "1.60.0",
+  "_version": "2.0.0",
   "sap.app": {
     "id": "tmui5",
     "type": "application",
@@ -34,7 +34,7 @@
   "sap.ui5": {
     "flexEnabled": false,
     "dependencies": {
-      "minUI5Version": "1.127.1",
+      "minUI5Version": "1.136.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {}
@@ -63,11 +63,11 @@
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "async": true,
-        "viewPath": "tmui5.view",
+        "path": "tmui5.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false,
+        "type": "View",
         "bypassed": {
           "target": "TargetNotFound"
         }
@@ -114,55 +114,55 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "MainView",
-          "viewName": "MainView"
+          "id": "MainView",
+          "name": "MainView"
         },
         "TargetTicketOverview": {
           "viewType": "XML",
           "transition": "Slide",
           "clearControlAggregation": false,
-          "viewId": "TicketOverview",
-          "viewName": "TicketOverview"
+          "id": "TicketOverview",
+          "name": "TicketOverview"
         },
         "TargetKanbanView": {
           "viewType": "XML",
           "transition": "Slide",
           "clearControlAggregation": false,
-          "viewId": "KanbanView",
-          "viewName": "KanbanView"
+          "id": "KanbanView",
+          "name": "KanbanView"
         },
         "TargetEditTicket": {
           "viewType": "XML",
           "transition": "Slide",
           "clearControlAggregation": false,
-          "viewId": "EditTicket",
-          "viewName": "EditTicket"
+          "id": "EditTicket",
+          "name": "EditTicket"
         },
         "TargetCreateTicket": {
           "viewType": "XML",
           "transition": "Slide",
           "clearControlAggregation": false,
-          "viewId": "CreateTicket",
-          "viewName": "CreateTicket"
+          "id": "CreateTicket",
+          "name": "CreateTicket"
         },
         "TargetDeleteTeamMember": {
           "viewType": "XML",
           "transition": "Slide",
           "clearControlAggregation": false,
-          "viewId": "DeleteTeamMember",
-          "viewName": "DeleteTeamMember"
+          "id": "DeleteTeamMember",
+          "name": "DeleteTeamMember"
         },
         "TargetDeleteCustomer": {
           "viewType": "XML",
           "transition": "Slide",
           "clearControlAggregation": false,
-          "viewId": "DeleteCustomer",
-          "viewName": "DeleteCustomer"
+          "id": "DeleteCustomer",
+          "name": "DeleteCustomer"
         },
         "TargetNotFound": {
           "viewType": "XML",
-          "viewId": "NotFound",
-          "viewName": "NotFound",
+          "id": "NotFound",
+          "name": "NotFound",
           "transition": "Slide"
         }
       }
@@ -170,7 +170,6 @@
     "rootView": {
       "viewName": "tmui5.view.App",
       "type": "XML",
-      "async": true,
       "id": "App"
     }
   }
