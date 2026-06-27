@@ -1,14 +1,9 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
 	"sap/ui/test/opaQunit",
-	"./pages/MainView"
+	"./OpaSetup"
 ], function(Opa5, opaTest) {
 	"use strict";
-
-	Opa5.extendConfig({
-		viewNamespace: "tmui5.view",
-		autoWait: true
-	});
 
 	QUnit.module("MainView");
 

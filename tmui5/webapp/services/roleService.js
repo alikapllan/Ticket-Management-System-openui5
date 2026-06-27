@@ -9,7 +9,7 @@ sap.ui.define([], function () {
 
       if (!response.ok) {
         throw new Error(
-          `Failed to fetch Roles: HTTP ${response.status}: ${response.statusText}`
+          `Failed to fetch Roles: HTTP ${response.status}: ${response.statusText}`,
         );
       }
 
